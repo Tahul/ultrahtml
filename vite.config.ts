@@ -6,6 +6,7 @@ export default defineConfig({
     jsxFragment: 'Fragment'
   },
   test: {
+    // @ts-ignore
     transformMode: {
       web: [/\.[jt]sx$/],
     },

@@ -29,20 +29,24 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
     },
     "./package.json": "./package.json",
     "./selector": {
       "types": "./dist/selector.d.ts",
-      "import": "./dist/selector.js"
+      "import": "./dist/selector.mjs",
+      "require": "./dist/selector.cjs"
     },
     "./transformers/*": {
       "types": "./dist/transformers/*.d.ts",
-      "import": "./dist/transformers/*.js"
+      "import": "./dist/transformers/*.mjs",
+      "require": "./dist/transformers/*.cjs"
     },
     "./jsx-runtime": {
       "types": "./dist/jsx-runtime/index.d.ts",
-      "import": "./dist/jsx-runtime/index.js"
+      "import": "./dist/jsx-runtime/index.mjs",
+      "require": "./dist/jsx-runtime/index.cjs"
     }
   },
   "keywords": [

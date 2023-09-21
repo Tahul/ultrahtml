@@ -17,13 +17,30 @@ async function run() {
             build({
                 metafile: true,
                 entryPoints: [file],
-                outfile: file.replace('src', 'dist').replace('.ts', '.js'),
+                outfile: file.replace('src', 'dist').replace('.ts', '.mjs'),
                 external: ["../selector.js", "../index.js", "./index.js"],
                 bundle: true,
                 format: 'esm',
                 minify: true,
                 sourcemap: 'external',
-                target: 'node16',
+                target: 'node18',
+                platform: 'node',
+            }).then((metadata) => {
+                const file = Object.keys(metadata.metafile.outputs)[1]
+                const size = gzipSizeFromFileSync(file);
+                const b = bytes(size);
+                output[file] = b;
+            }),
+            build({
+                metafile: true,
+                entryPoints: [file],
+                outfile: file.replace('src', 'dist').replace('.ts', '.cjs'),
+                external: ["../selector.js", "../index.js", "./index.js"],
+                bundle: true,
+                format: 'cjs',
+                minify: true,
+                sourcemap: 'external',
+                target: 'node18',
                 platform: 'node',
             }).then((metadata) => {
                 const file = Object.keys(metadata.metafile.outputs)[1]
