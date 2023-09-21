@@ -56,11 +56,11 @@ async function run() {
         const config = {
             filePath,
             libraries: {
-                inlinedLibraries: ['media-query-fns']
+                inlinedLibraries: ['media-query-fns'],
             },
             output: {
                 exportReferencedTypes: false,
-            }
+            },
         }
         return config;
     }), { preferredConfigPath: 'tsconfig.json' });
